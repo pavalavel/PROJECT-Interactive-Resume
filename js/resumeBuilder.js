@@ -32,6 +32,40 @@ This is empty on purpose! Your code to build the resume will go here.
 	"description":"Acquiring new clients to the bank"
  }
 
+ var projects={
+ 	"project":[
+ 	{
+ 		"title":"project1",
+ 		"dates":"june 2015",
+ 		"description":"Lorem ipsum",
+ 		"image":"images/pavalavel"
+ 	},
+ 	{
+ 		"title":"project2",
+ 		"dates":"june 2015",
+ 		"description":"Lorem ipsum",
+ 		"image":"images/pavalavel"
+ 	},
+ 	{
+ 		"title":"project3",
+ 		"dates":"june 2015",
+ 		"description":"Lorem ipsum",
+ 		"image":"images/pavalavel"
+ 	},
+ 	{
+ 		"title":"project4",
+ 		"dates":"june 2015",
+ 		"description":"Lorem ipsum",
+ 		"image":"images/pavalavel"
+ 	},
+ 	{
+ 		"title":"project5",
+ 		"dates":"june 2015",
+ 		"description":"Lorem ipsum",
+ 		"image":"images/pavalavel"
+ 	}
+ 	]}
+
  var displayHeader=function(){
 
  	var name=HTMLheaderName.replace("%data%",header.headerName);
@@ -79,20 +113,31 @@ displaySkills();
 var displayWorkExp=function(){
 
 	$('#workExperience').append(HTMLworkStart);
-	var employer=HTMLworkEmployer.replace("%data%",work.employer);
-	var title=HTMLworkTitle.replace("%data%",work.title);
-	var dates=HTMLworkDates.replace("%data%",work.dates);
-	var location=HTMLworkLocation.replace("%data%",work.location);
-	var description=HTMLworkDescription.replace("%data%",work.description);
+		var employer=HTMLworkEmployer.replace("%data%",work.employer);
+		var title=HTMLworkTitle.replace("%data%",work.title);
+		var dates=HTMLworkDates.replace("%data%",work.dates);
+		var location=HTMLworkLocation.replace("%data%",work.location);
+		var description=HTMLworkDescription.replace("%data%",work.description);
 
-	var totalWork=employer+title+dates+location+description;
+		var totalWork=employer+title+dates+location+description;
 	$('.work-entry').append(totalWork);
 	
 }
 displayWorkExp();
 
+var displayProjects=function(){
+		$('#projects').append(HTMLprojectStart);
+		for (var i = 0; i < projects.project.length; i++) {
+			var title=HTMLprojectTitle.replace("%data%",projects.project[i].title);
+			var dates=HTMLprojectDates.replace("%data%",projects.project[i].dates);
+			var description=HTMLprojectDescription.replace("%data%",projects.project[i].description);
+			var image=HTMLprojectImage.replace("%data%",projects.project[i].image);
 
-
+			var totalProject=title+dates+description+image;
+		$('.project-entry').append(totalProject);
+	};
+}
+displayProjects();
 
 
 
