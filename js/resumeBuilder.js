@@ -6,6 +6,7 @@ This is empty on purpose! Your code to build the resume will go here.
  	"headerName":"Pavalavel Ramesh",
  	"headerRole":"Web Developer",
  }
+
  var contacts={
  	"type":"Skype",
  	"id":"Pavalavel Ramesh",
@@ -14,7 +15,14 @@ This is empty on purpose! Your code to build the resume will go here.
  	"twitter":"@pavalavel_r",
  	"gitHub":"https://github.com/pavalavel",
  	"location":"Chennai"
- 	}
+ }
+
+ var bio={
+ 	"pic":"images/Pavalavel.jpg",
+ 	"message":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+ }
+
+ var skills=["HTML 5", "CSS 3", "JavaScript", "jQuery", "KnockoutJs", "Bootstrap", "Git", "GitHub"]
  
 
  var displayHeader=function(){
@@ -44,9 +52,22 @@ This is empty on purpose! Your code to build the resume will go here.
  };
 displayContact();
 
+var displayBio=function(){
+	var pic=HTMLbioPic.replace("%data%", bio.pic);
+	var message=HTMLwelcomeMsg.replace("%data%",bio.message);
+	var totalBioTop=pic+message;
+	$('#header').append(totalBioTop);
+};
+displayBio();
 
-
-
+var displaySkills=function(){
+	$('#header').append(HTMLskillsStart);
+	for (var i = 0; i < skills.length; i++) {
+		var skill=HTMLskills.replace("%data%",skills[i]);
+	$('#skills').append(skill);
+	};
+}
+displaySkills();
 
 
 
