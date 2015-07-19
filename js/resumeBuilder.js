@@ -24,6 +24,13 @@ This is empty on purpose! Your code to build the resume will go here.
 
  var skills=["HTML 5", "CSS 3", "JavaScript", "jQuery", "KnockoutJs", "Bootstrap", "Git", "GitHub"]
  
+ var work={
+ 	"employer":"Deutsche Bank",
+ 	"title":"Sales Manager",
+	"dates":'2013-2014',
+	"location":"Chennai",
+	"description":"Acquiring new clients to the bank"
+ }
 
  var displayHeader=function(){
 
@@ -69,7 +76,20 @@ var displaySkills=function(){
 }
 displaySkills();
 
+var displayWorkExp=function(){
 
+	$('#workExperience').append(HTMLworkStart);
+	var employer=HTMLworkEmployer.replace("%data%",work.employer);
+	var title=HTMLworkTitle.replace("%data%",work.title);
+	var dates=HTMLworkDates.replace("%data%",work.dates);
+	var location=HTMLworkLocation.replace("%data%",work.location);
+	var description=HTMLworkDescription.replace("%data%",work.description);
+
+	var totalWork=employer+title+dates+location+description;
+	$('.work-entry').append(totalWork);
+	
+}
+displayWorkExp();
 
 
 
