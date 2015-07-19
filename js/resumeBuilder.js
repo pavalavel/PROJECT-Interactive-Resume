@@ -4,7 +4,7 @@ This is empty on purpose! Your code to build the resume will go here.
 
  var header={
  	"headerName":"Pavalavel Ramesh",
- 	"headerRole":"Web Developer",
+ 	"headerRole":"Front-End Web Developer",
  }
 
  var contacts={
@@ -65,6 +65,32 @@ This is empty on purpose! Your code to build the resume will go here.
  		"image":"images/pavalavel"
  	}
  	]}
+
+ var schools={
+ 	"school":[
+		{
+			"name":"Velammal Engineering college",
+			"degree":"MBA",
+			"dates":"2011-2013",
+			"location":"Chennai",
+			"major":"Marketing"
+		},
+		{
+			"name":"Alpha Arts and Science",
+			"degree":"B.sc",
+			"dates":"2008-2011",
+			"location":"Chennai",
+			"major":"Computer Science"
+		}
+ 	]
+ }
+
+var onlineClasses={
+	"title":"Front-End Web Developer Nanodegree",
+	"school":"Udacity",
+	"dates":"2014-2015",
+	"url":"https://www.udacity.com/course/front-end-web-developer-nanodegree--nd001"
+}
 
  var displayHeader=function(){
 
@@ -139,6 +165,29 @@ var displayProjects=function(){
 }
 displayProjects();
 
+var displaySchool=function(){
+	$('#education').append(HTMLschoolStart);
+	for (var i = 0; i < schools.school.length; i++) {
+		var name=HTMLschoolName.replace("%data%", schools.school[i].name);
+		var degree=HTMLschoolDegree.replace("%data%",schools.school[i].degree);
+		var dates=HTMLschoolDates.replace("%data%", schools.school[i].dates);
+		var location=HTMLschoolLocation.replace("%data%", schools.school[i].location);
+		var major=HTMLschoolMajor.replace("%data%", schools.school[i].major);
+		
+		var totalSchool=name+degree+dates+location+major;
+		$('.education-entry').append(totalSchool);
+	};
+}
+displaySchool();
 
+displayOnlineClasses=function(){
+	var title=HTMLonlineTitle.replace("%data%",onlineClasses.title);
+	var school=HTMLonlineSchool.replace("%data%",onlineClasses.school);
+	var dates=HTMLonlineDates.replace("%data%",onlineClasses.dates);
+	var url=HTMLonlineURL.replace("%data%",onlineClasses.url);
 
+	var totalOnlineClasses=HTMLonlineClasses+title+school+dates+url;
+	$('.education-entry').append(totalOnlineClasses);
+}
+displayOnlineClasses();
 
